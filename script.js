@@ -231,14 +231,16 @@ function initMusic() {
       audio.pause();
       toggle.classList.remove('playing');
       toggle.querySelector('.music-label').textContent = 'Music';
+      isPlaying = false;
     } else {
-      audio.play().catch(() => {
-        // Autoplay blocked — that's fine, user needs to interact first
+      audio.play().then(() => {
+        toggle.classList.add('playing');
+        toggle.querySelector('.music-label').textContent = 'Playing';
+        isPlaying = true;
+      }).catch((err) => {
+        console.error('Audio playback failed:', err);
       });
-      toggle.classList.add('playing');
-      toggle.querySelector('.music-label').textContent = 'Playing';
     }
-    isPlaying = !isPlaying;
   });
 }
 
