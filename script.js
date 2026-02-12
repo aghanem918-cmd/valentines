@@ -125,6 +125,14 @@ function initYesButton() {
         mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 200);
 
+      // Start music
+      const audio = document.getElementById('bgMusic');
+      const musicToggle = document.getElementById('musicToggle');
+      audio.play().then(() => {
+        musicToggle.classList.add('playing');
+        musicToggle.querySelector('.music-label').textContent = 'Playing';
+      }).catch(() => {});
+
       // Start countdown
       startCountdown();
 
@@ -222,21 +230,18 @@ function initScrollAnimations() {
 function initMusic() {
   const toggle = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
-  let isPlaying = false;
 
   audio.volume = 0.3;
 
   toggle.addEventListener('click', () => {
-    if (isPlaying) {
+    if (!audio.paused) {
       audio.pause();
       toggle.classList.remove('playing');
       toggle.querySelector('.music-label').textContent = 'Music';
-      isPlaying = false;
     } else {
       audio.play().then(() => {
         toggle.classList.add('playing');
         toggle.querySelector('.music-label').textContent = 'Playing';
-        isPlaying = true;
       }).catch((err) => {
         console.error('Audio playback failed:', err);
       });
