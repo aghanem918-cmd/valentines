@@ -127,7 +127,6 @@ function initYesButton() {
 
       // Start music
       const audio = document.getElementById('bgMusic');
-      const musicToggle = document.getElementById('musicToggle');
       audio.play().then(() => {
         musicToggle.classList.add('playing');
         musicToggle.querySelector('.music-label').textContent = 'Playing';
