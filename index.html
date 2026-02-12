@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine? 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" />
+</head>
+<body>
+  <!-- Floating Hearts Background -->
+  <div class="floating-hearts" aria-hidden="true" id="floatingHearts"></div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-icon">💕</div>
+      <h1 class="hero-title">Maryam, will you be my Valentine?</h1>
+      <div class="hero-buttons">
+        <button class="btn-yes" id="btnYes">Yes 💖</button>
+        <button class="btn-no" id="btnNo">No 💔</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT (hidden until "Yes") ==================== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- COUNTDOWN SECTION -->
+    <section class="section countdown-section" id="countdown">
+      <h2 class="section-title">Countdown to Our Valentine's Date 💌</h2>
+      <p class="section-subtitle">Ahmed & Maryam's Valentines Day 2026</p>
+      <div class="countdown-cards">
+        <div class="countdown-card">
+          <span class="countdown-number" id="countDays">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countHours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countMins">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countSecs">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+      <p class="countdown-timezone">February 14, 2026 &bull; 3:30 PM (Bahrain Time)</p>
+    </section>
+
+    <!-- ITINERARY SECTION -->
+    <section class="section itinerary-section">
+      <h2 class="section-title">The Itinerary 💕</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-animate>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-emoji">💬</span>
+            <div class="timeline-info">
+              <span class="timeline-time">3:30 PM – 3:45 PM</span>
+              <p class="timeline-desc">FaceTime & chat</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-animate>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-emoji">🎨</span>
+            <div class="timeline-info">
+              <span class="timeline-time">3:45 PM – 4:45 PM</span>
+              <p class="timeline-desc">Painting</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-animate>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-emoji">🍽️</span>
+            <div class="timeline-info">
+              <span class="timeline-time">4:45 PM – 5:30 PM</span>
+              <p class="timeline-desc">Dinner</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-animate>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-emoji">🎬</span>
+            <div class="timeline-info">
+              <span class="timeline-time">5:30 PM – 7:30 PM</span>
+              <p class="timeline-desc">Movie</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOS SECTION -->
+    <section class="section photos-section">
+      <h2 class="section-title">Us 💖</h2>
+      <p class="section-subtitle">Some of my favorite moments with you</p>
+      <div class="photo-grid">
+        <div class="photo-card" data-animate>
+          <img src="adventure.jpg" alt="Our first adventure together" />
+          <p class="photo-caption">Our first adventure together</p>
+        </div>
+        <div class="photo-card" data-animate>
+          <img src="laugh.jpg" alt="That day we couldn't stop laughing" />
+          <p class="photo-caption">That day we couldn't stop laughing</p>
+        </div>
+        <div class="photo-card" data-animate>
+          <img src="cute.jpg" alt="You looked so cute here" />
+          <p class="photo-caption">You looked so cute here</p>
+        </div>
+        <div class="photo-card" data-animate>
+          <img src="memory.jpg" alt="One of my favorite memories" />
+          <p class="photo-caption">One of my favorite memories</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVIE NIGHT SECTION -->
+    <section class="section movie-section">
+      <h2 class="section-title">Movie Night 🎥🍿</h2>
+      <p class="section-subtitle">Let's watch something together, even from far away</p>
+      <div class="movie-card" data-animate>
+        <p class="movie-text">
+          We'll watch our movie together using <strong>Teleparty</strong>.<br />
+          It syncs the video so we can laugh and cry at the same time.
+        </p>
+        <a href="https://www.teleparty.com/join/c39de6d00b57dba5?tr=sd_cl" target="_blank" rel="noopener" class="btn-teleparty">
+          Join Teleparty 💕
+        </a>
+        <p class="movie-instruction">Click when it's time and we'll press play together.</p>
+      </div>
+    </section>
+
+    <!-- PERSONAL NOTE SECTION -->
+    <section class="section note-section">
+      <h2 class="section-title">A Little Note 💌</h2>
+      <div class="love-note" data-animate>
+        <p>
+          Even though we're apart, I wanted to make something just for us.
+        </p>
+        <p>
+          You make every mile between us feel like nothing at all.
+        </p>
+        <p>
+          I can't wait for the day I don't have to miss you anymore.
+        </p>
+        <p class="note-sign">— With all my love 💗</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-heart">💗</div>
+      <p class="footer-text">Happy Valentine's Day</p>
+      <p class="footer-year">2026</p>
+    </footer>
+  </main>
+
+  <!-- MUSIC TOGGLE -->
+  <button class="music-toggle" id="musicToggle" title="Toggle music">
+    <span class="music-icon">🎵</span>
+    <span class="music-label">Music</span>
+  </button>
+
+  <!-- Background Music (replace src with your own audio file or URL) -->
+  <audio id="bgMusic" loop preload="auto">
+    <!-- Replace with your own romantic instrumental MP3 -->
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

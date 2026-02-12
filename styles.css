@@ -1,0 +1,812 @@
+/* ============================================
+   Valentine's Day Invitation — Styles
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --pink-100: #fff0f3;
+  --pink-200: #ffd6e0;
+  --pink-300: #ffb3c6;
+  --pink-400: #ff8fab;
+  --pink-500: #fb6f92;
+  --pink-600: #e05780;
+  --blush: #fff5f7;
+  --white: #ffffff;
+  --cream: #fffbfc;
+  --text-primary: #5c3d4e;
+  --text-secondary: #8a6575;
+  --text-light: #b48d9e;
+  --shadow-soft: 0 4px 20px rgba(251, 111, 146, 0.12);
+  --shadow-card: 0 8px 32px rgba(251, 111, 146, 0.10);
+  --shadow-hover: 0 12px 40px rgba(251, 111, 146, 0.18);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-full: 9999px;
+  --font-main: 'Nunito', 'Segoe UI', sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  background: linear-gradient(180deg, var(--pink-100) 0%, var(--white) 40%, var(--blush) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Floating Hearts ---------- */
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 1rem;
+  opacity: 0;
+  animation: floatHeart linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10vh) rotate(360deg) scale(1);
+  }
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  z-index: 1;
+  background: linear-gradient(170deg, var(--pink-100) 0%, var(--pink-200) 35%, var(--white) 100%);
+}
+
+.hero-content {
+  max-width: 420px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.btn-yes {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  color: var(--white);
+  background: linear-gradient(135deg, var(--pink-400) 0%, var(--pink-500) 100%);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(251, 111, 146, 0.35);
+  transition: var(--transition);
+  transform: scale(1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-yes::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);
+  border-radius: inherit;
+}
+
+.btn-yes:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 32px rgba(251, 111, 146, 0.45);
+}
+
+.btn-yes:active {
+  transform: scale(0.97);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-no {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  color: var(--text-secondary);
+  background: var(--white);
+  border: 2px solid var(--pink-200);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.btn-no:hover {
+  border-color: var(--pink-300);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-no:active {
+  transform: scale(0.97);
+}
+
+/* No popup overlay */
+.no-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(92, 61, 78, 0.3);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+  padding: 1.5rem;
+}
+
+.no-popup {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-hover);
+  max-width: 340px;
+  width: 100%;
+  animation: fadeInUp 0.35s ease;
+}
+
+.no-popup-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.no-popup-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.no-popup-subtext {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.no-popup-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  color: var(--white);
+  background: linear-gradient(135deg, var(--pink-400) 0%, var(--pink-500) 100%);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(251, 111, 146, 0.3);
+  transition: var(--transition);
+}
+
+.no-popup-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content.revealed {
+  display: block;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* ---------- Sections General ---------- */
+.section {
+  padding: 4rem 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* ---------- Countdown Section ---------- */
+.countdown-section {
+  text-align: center;
+}
+
+.countdown-cards {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.countdown-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  min-width: 72px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: var(--transition);
+}
+
+.countdown-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--pink-500);
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.countdown-number.tick {
+  animation: tickBounce 0.4s ease;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.countdown-timezone {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+@keyframes tickBounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  60% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Itinerary / Timeline ---------- */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--pink-300), var(--pink-200), transparent);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.65rem;
+  top: 1.2rem;
+  width: 10px;
+  height: 10px;
+  background: var(--pink-400);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 3px var(--pink-200);
+}
+
+.timeline-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.timeline-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.timeline-emoji {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.timeline-info {
+  flex: 1;
+}
+
+.timeline-time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--pink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.timeline-desc {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-top: 0.2rem;
+  line-height: 1.5;
+}
+
+/* ---------- Photos Section ---------- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.photo-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.photo-card.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.photo-placeholder {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, var(--pink-100), var(--pink-200));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 2rem;
+  color: var(--pink-400);
+}
+
+.photo-placeholder small {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+/* When you add real photos, use this class */
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.photo-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ---------- Movie Night Section ---------- */
+.movie-section {
+  text-align: center;
+}
+
+.movie-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.movie-card.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.movie-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.btn-teleparty {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  color: var(--white);
+  background: linear-gradient(135deg, var(--pink-400) 0%, var(--pink-500) 100%);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(251, 111, 146, 0.3);
+  transition: var(--transition);
+}
+
+.btn-teleparty:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(251, 111, 146, 0.4);
+}
+
+.btn-teleparty:active {
+  transform: scale(0.97);
+}
+
+.movie-instruction {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ---------- Personal Note Section ---------- */
+.note-section {
+  text-align: center;
+}
+
+.love-note {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+  border: 2px solid var(--pink-200);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.love-note.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.love-note::before {
+  content: '💌';
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  background: var(--blush);
+  padding: 0 0.5rem;
+}
+
+.love-note p {
+  font-family: var(--font-handwritten);
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.love-note p:last-child {
+  margin-bottom: 0;
+}
+
+.note-sign {
+  color: var(--pink-500) !important;
+  font-weight: 600 !important;
+  margin-top: 0.5rem !important;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.footer-heart {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  animation: gentleBounce 2.5s ease-in-out infinite;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.footer-year {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ---------- Music Toggle ---------- */
+.music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  background: var(--white);
+  border: 2px solid var(--pink-200);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.music-toggle.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.music-toggle:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--pink-300);
+}
+
+.music-toggle.playing {
+  background: var(--pink-100);
+  border-color: var(--pink-400);
+  color: var(--pink-600);
+}
+
+.music-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.music-toggle.playing .music-icon {
+  animation: musicPulse 1s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ---------- Sparkle burst on "Yes" click ---------- */
+.sparkle-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: sparkleFly 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes sparkleFly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0.3);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 480px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .countdown-card {
+    min-width: 90px;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .section {
+    padding: 5rem 2rem;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .love-note p {
+    font-size: 1.6rem;
+  }
+}
+
+/* ---------- Scroll reveal stagger ---------- */
+.timeline-item:nth-child(1) { transition-delay: 0s; }
+.timeline-item:nth-child(2) { transition-delay: 0.1s; }
+.timeline-item:nth-child(3) { transition-delay: 0.2s; }
+.timeline-item:nth-child(4) { transition-delay: 0.3s; }
+
+.photo-card:nth-child(1) { transition-delay: 0s; }
+.photo-card:nth-child(2) { transition-delay: 0.1s; }
+.photo-card:nth-child(3) { transition-delay: 0.2s; }
+.photo-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* ---------- Selection ---------- */
+::selection {
+  background: var(--pink-200);
+  color: var(--text-primary);
+}
+
+/* ---------- Scrollbar (Webkit) ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pink-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-400);
+}
